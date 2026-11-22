@@ -2,12 +2,332 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ПрофиЛад</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ПрофиЛад — ремонт музыкальных инструментов</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #101012;
+      color: #f5f1e9;
+      line-height: 1.6;
+    }
+
+    :root {
+      --gold: #c9a15b;
+      --dark: #19191c;
+      --muted: #aaa6a0;
+    }
+
+    header {
+      padding: 24px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #37312a;
+    }
+
+    .logo {
+      color: var(--gold);
+      font-size: 27px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: #eee;
+      text-decoration: none;
+      margin-left: 22px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      background: linear-gradient(135deg, #19191c, #101012);
+    }
+
+    .hero h1 {
+      color: var(--gold);
+      font-size: clamp(38px, 7vw, 66px);
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 21px;
+      margin-bottom: 12px;
+    }
+
+    .subtext {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 13px 28px;
+      background: var(--gold);
+      color: #17130d;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 65px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--gold);
+      font-size: 30px;
+      margin-bottom: 35px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 20px;
+    }
+
+    .service {
+      background: var(--dark);
+      padding: 28px;
+      border: 1px solid #39332a;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .service h3 {
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .about {
+      background: #19191c;
+      text-align: center;
+    }
+
+    .about p {
+      max-width: 750px;
+      margin: auto;
+      color: #d0ccc5;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .photo-card {
+      background: var(--dark);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #39332a;
+    }
+
+    .photo-placeholder {
+      height: 190px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      background: #29292d;
+    }
+
+    .photo-card p {
+      text-align: center;
+      padding: 12px;
+      color: var(--gold);
+    }
+
+    .request {
+      max-width: 650px;
+      margin: auto;
+      background: var(--dark);
+      padding: 30px;
+      border-radius: 14px;
+      border: 1px solid #4b3c27;
+    }
+
+    .request p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 14px;
+      border: 1px solid #444;
+      border-radius: 8px;
+      background: #29292d;
+      color: white;
+      font-size: 15px;
+    }
+
+    input[type="file"] {
+      border: 1px solid var(--gold);
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      background: var(--gold);
+      color: #17130d;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .contacts {
+      text-align: center;
+      background: #19191c;
+    }
+
+    .contacts p {
+      margin: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: var(--gold);
+      border-top: 1px solid #39332a;
+    }
+
+    @media (max-width: 650px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav a {
+        margin: 0 7px;
+      }
+
+      .hero {
+        padding: 70px 20px;
+      }
+
+      section {
+        padding: 50px 6%;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <h1>ПрофиЛад</h1>
-    <p>Забота о звучании вашего инструмента</p>
+
+  <header>
+    <div class="logo">♫ ПрофиЛад</div>
+    <nav>
+      <a href="#services">Услуги</a>
+      <a href="#about">О мастере</a>
+      <a href="#gallery">Работы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h1>ПрофиЛад</h1>
+      <p>Забота о звучании вашего инструмента</p>
+      <p class="subtext">
+        Профессиональный ремонт и обслуживание музыкальных инструментов
+      </p>
+      <p class="subtext">Работаю с клиентами по всему Казахстану</p>
+      <a class="button" href="#request">Оставить заявку</a>
+    </div>
+
+    <section id="services">
+      <h2 class="section-title">Мои услуги</h2>
+      <div class="services">
+        <div class="service">
+          <h3>Ремонт</h3>
+          <p>Устранение неисправностей и восстановление инструментов.</p>
+        </div>
+        <div class="service">
+          <h3>Настройка</h3>
+          <p>Настройка и регулировка для качественного звучания.</p>
+        </div>
+        <div class="service">
+          <h3>Обслуживание</h3>
+          <p>Профилактика, уход и поддержание инструмента в порядке.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <h2 class="section-title">О мастере</h2>
+      <p>
+        Меня зовут мастер «ПрофиЛад». Я занимаюсь ремонтом,
+        настройкой и обслуживанием музыкальных инструментов.
+        Для меня важно вернуть каждому инструменту его звучание.
+        Сроки и стоимость работ обсуждаются индивидуально.
+      </p>
+    </section>
+
+    <section id="gallery">
+      <h2 class="section-title">Мои работы</h2>
+      <div class="gallery">
+        <div class="photo-card">
+          <div class="photo-placeholder">Фото будет добавлено</div>
+          <p>До ремонта</p>
+        </div>
+        <div class="photo-card">
+          <div class="photo-placeholder">Фото будет добавлено</div>
+          <p>После ремонта</p>
+        </div>
+        <div class="photo-card">
+          <div class="photo-placeholder">Фото будет добавлено</div>
+          <p>Мои работы</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="request">
+      <h2 class="section-title">Заявка на ремонт</h2>
+      <div class="request">
+        <p>Опишите неисправность и приложите фотографию инструмента.</p>
+        <form>
+          <input type="text" placeholder="Ваше имя">
+          <input type="tel" placeholder="Ваш номер телефона">
+          <textarea placeholder="Что случилось с инструментом?"></textarea>
+          <input type="file" accept="image/*">
+          <button type="button">Отправить заявку</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="contacts" id="contacts">
+      <h2 class="section-title">Контакты</h2>
+      <p>Телефон и WhatsApp добавим после оформления сайта.</p>
+      <p>Кокшетау, Казахстан</p>
+    </section>
+  </main>
+
+  <footer>
+    ПрофиЛад — забота о звучании вашего инструмента
+  </footer>
+
 </body>
 </html>
